@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
+WALLPAPER_DIR="/home/rafael/Pictures/Wallpapers"
 CACHE_FILE="/tmp/wallpaper_map"
 
 refresh_cache() {

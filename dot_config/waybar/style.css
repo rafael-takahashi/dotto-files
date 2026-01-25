@@ -1,5 +1,5 @@
 * {
-  font-family: 'JetBrainsMono Nerd Font Propo', sans-serif;
+  font-family: 'JetBrainsMono Nerd Font Propo';
   font-size: 13px;
 }
 
@@ -30,7 +30,7 @@ button:hover {
 
 #workspaces button {
   background-color: rgba(200, 200, 200, 0.2);
-  padding: 0 3px;
+  padding: 0 5px;
   margin: 0 3px;
   color: #e8eaed;
 }
