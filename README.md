@@ -1,8 +1,6 @@
-# Personal Dotfiles Managed with Chezmoi
+### Personal Dotfiles Managed with Chezmoi
 
 This repository contains my personal configuration files (dotfiles), scripts, and styles managed with [chezmoi](https://chezmoi.io/).
-
-## Getting Started
 
 ### Setup
 
