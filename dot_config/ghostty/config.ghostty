@@ -1,0 +1,9 @@
+background-opacity = 0.64
+background = #000000
+foreground = #e8eaed
+cursor-color = #c8c8c8
+font-family = JetBrainsMono Nerd Font Propo
+font-size = 13
+window-padding-x = 10
+window-padding-y = 10
+
