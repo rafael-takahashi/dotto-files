@@ -169,10 +169,33 @@ hl.config({
 
 hl.config({
     animations = {
-        enabled = { true, "please:)" },
-        -- Default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
+        enabled = true,
     },
 })
+
+-- Default curves and animations, see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
+hl.curve("easeOutQuint",   { type = "bezier", points = { {0.23, 1},    {0.32, 1}    } })
+hl.curve("easeInOutCubic", { type = "bezier", points = { {0.65, 0.05}, {0.36, 1}    } })
+hl.curve("linear",         { type = "bezier", points = { {0, 0},       {1, 1}       } })
+hl.curve("almostLinear",   { type = "bezier", points = { {0.5, 0.5},   {0.75, 1}    } })
+hl.curve("quick",          { type = "bezier", points = { {0.15, 0},    {0.1, 1}     } })
+
+hl.animation({ leaf = "global",        enabled = true,  speed = 10,   bezier = "default" })
+hl.animation({ leaf = "border",        enabled = true,  speed = 5.39, bezier = "easeOutQuint" })
+hl.animation({ leaf = "windows",       enabled = true,  speed = 4.79, bezier = "easeOutQuint" })
+hl.animation({ leaf = "windowsIn",     enabled = true,  speed = 4.1,  bezier = "easeOutQuint", style = "popin 87%" })
+hl.animation({ leaf = "windowsOut",    enabled = true,  speed = 1.49, bezier = "linear",       style = "popin 87%" })
+hl.animation({ leaf = "fadeIn",        enabled = true,  speed = 1.73, bezier = "almostLinear" })
+hl.animation({ leaf = "fadeOut",       enabled = true,  speed = 1.46, bezier = "almostLinear" })
+hl.animation({ leaf = "fade",          enabled = true,  speed = 3.03, bezier = "quick" })
+hl.animation({ leaf = "layers",        enabled = true,  speed = 3.81, bezier = "easeOutQuint" })
+hl.animation({ leaf = "layersIn",      enabled = true,  speed = 4,    bezier = "easeOutQuint", style = "fade" })
+hl.animation({ leaf = "layersOut",     enabled = true,  speed = 1.5,  bezier = "linear",       style = "fade" })
+hl.animation({ leaf = "fadeLayersIn",  enabled = true,  speed = 1.79, bezier = "almostLinear" })
+hl.animation({ leaf = "fadeLayersOut", enabled = true,  speed = 1.39, bezier = "almostLinear" })
+hl.animation({ leaf = "workspaces",    enabled = true,  speed = 1.94, bezier = "almostLinear", style = "fade" })
+hl.animation({ leaf = "workspacesIn",  enabled = true,  speed = 1.21, bezier = "almostLinear", style = "fade" })
+hl.animation({ leaf = "workspacesOut", enabled = true,  speed = 1.94, bezier = "almostLinear", style = "fade" })
 
 -- Ref https://wiki.hyprland.org/Configuring/Workspace-Rules/
 
@@ -297,21 +320,21 @@ hl.bind(mainMod .. " + " .. "P", hl.dsp.window.pseudo())
 
 -- Move window with mainMod + arrow keys
 
-hl.bind(mainMod .. " + " .. "left", { direction = "l" })
+hl.bind(mainMod .. " + " .. "left", hl.dsp.window.move({ direction = "l" }))
 
-hl.bind(mainMod .. " + " .. "right", { direction = "r" })
+hl.bind(mainMod .. " + " .. "right", hl.dsp.window.move({ direction = "r" }))
 
-hl.bind(mainMod .. " + " .. "up", { direction = "u" })
+hl.bind(mainMod .. " + " .. "up", hl.dsp.window.move({ direction = "u" }))
 
-hl.bind(mainMod .. " + " .. "down", { direction = "d" })
+hl.bind(mainMod .. " + " .. "down", hl.dsp.window.move({ direction = "d" }))
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "left", hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "left", hl.dsp.focus({ direction = "l" }))
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "right", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "right", hl.dsp.focus({ direction = "r" }))
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "up", hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "up", hl.dsp.focus({ direction = "u" }))
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "down", hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "down", hl.dsp.focus({ direction = "d" }))
 
 -- Switch workspaces with mainMod + [0-9]
 
