@@ -9,10 +9,7 @@ if [ -f "$STATE_FILE" ]; then
         waybar & disown
     fi
 
-    hyprctl keyword general:border_size 1
-    hyprctl keyword decoration:rounding 7
-    hyprctl keyword general:gaps_in 3.5
-    hyprctl keyword general:gaps_out 7
+    hyprctl eval 'hl.config({ general = { border_size = 1, gaps_in = 3.5, gaps_out = 7 }, decoration = { rounding = 7 } })'
 else
     touch "$STATE_FILE"
 
@@ -20,8 +17,5 @@ else
         pkill -x waybar
     fi
 
-    hyprctl keyword general:border_size 0
-    hyprctl keyword decoration:rounding 0
-    hyprctl keyword general:gaps_in 0
-    hyprctl keyword general:gaps_out 0
+    hyprctl eval 'hl.config({ general = { border_size = 0, gaps_in = 0, gaps_out = 0 }, decoration = { rounding = 0 } })'
 fi
