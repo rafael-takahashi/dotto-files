@@ -300,6 +300,10 @@ hl.bind(mainMod .. " + " .. "PRINT", hl.dsp.exec_cmd("hyprshot -m output --clipb
 
 hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "PRINT", hl.dsp.exec_cmd("hyprshot -m region --clipboard-only"))
 
+-- OCR region
+
+hl.bind(mainMod .. " + " .. "J", hl.dsp.exec_cmd("normcap --lang jpn"))
+
 -- Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
 
 hl.bind(mainMod .. " + " .. "T", hl.dsp.exec_cmd("ghostty"))
