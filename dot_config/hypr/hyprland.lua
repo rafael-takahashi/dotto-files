@@ -310,7 +310,7 @@ hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "PRINT", hl.dsp.exec_cmd("hyprsh
 
 -- OCR region
 
-hl.bind(mainMod .. " + " .. "J", hl.dsp.exec_cmd("normcap --lang jpn"))
+hl.bind(mainMod .. " + " .. "J", hl.dsp.exec_cmd("okra"))
 
 -- Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
 
