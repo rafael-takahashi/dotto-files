@@ -56,7 +56,13 @@ local terminal = "ghostty"
 
 local fileManager = "dolphin"
 
-local menu = "rofi -show drun"
+-- sotoo: Rofi launches go through `sotoo launch`, which asks for an intention first.
+-- Falls back to plain Rofi if sotoo isn't installed; `sotoo launch` itself fails open
+-- if its daemon isn't running.
+local menu = "command -v sotoo >/dev/null"
+    .. " && exec rofi -show drun -run-command 'sotoo launch -- {cmd}'"
+    .. " -run-shell-command 'sotoo launch -- {terminal} -e {cmd}'"
+    .. " || exec rofi -show drun"
 
 --################
 
@@ -324,7 +330,7 @@ hl.bind(mainMod .. " + " .. "E", hl.dsp.exec_cmd("dolphin"))
 
 hl.bind(mainMod .. " + " .. "V", hl.dsp.window.float())
 
-hl.bind(mainMod .. " + " .. "R", hl.dsp.exec_cmd("rofi -show drun"))
+hl.bind(mainMod .. " + " .. "R", hl.dsp.exec_cmd(menu))
 
 hl.bind(mainMod .. " + " .. "P", hl.dsp.window.pseudo())
 
