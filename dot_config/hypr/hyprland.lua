@@ -56,13 +56,10 @@ local terminal = "ghostty"
 
 local fileManager = "dolphin"
 
--- sotoo: Rofi launches go through `sotoo launch`, which asks for an intention first.
--- Falls back to plain Rofi if sotoo isn't installed; `sotoo launch` itself fails open
--- if its daemon isn't running.
-local menu = "command -v sotoo >/dev/null"
-    .. " && exec rofi -show drun -run-command 'sotoo launch -- {cmd}'"
-    .. " -run-shell-command 'sotoo launch -- {terminal} -e {cmd}'"
-    .. " || exec rofi -show drun"
+-- sotoo: `sotoo menu` shows the app list in Rofi and asks before a listed app opens
+-- (Rofi 2.1's drun ignores -run-command). Falls back to plain Rofi if sotoo isn't
+-- installed or fails; it launches anyway if its daemon isn't running.
+local menu = "command -v sotoo >/dev/null && sotoo menu || exec rofi -show drun"
 
 --################
 
