@@ -306,6 +306,10 @@ hl.bind(mainMod .. " + " .. "L", hl.dsp.exec_cmd("toggle-min-mode"))
 
 hl.bind(mainMod .. " + " .. "W", hl.dsp.exec_cmd("toggle-waybar"))
 
+-- Region screen recording toggle
+
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "R", hl.dsp.exec_cmd("~/.config/hypr/scripts/record-toggle.sh"))
+
 -- Screenshot monitor
 
 hl.bind(mainMod .. " + " .. "PRINT", hl.dsp.exec_cmd("hyprshot -m output --clipboard-only"))

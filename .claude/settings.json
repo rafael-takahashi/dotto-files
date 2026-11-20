@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(chezmoi diff:*)",
+      "Bash(chezmoi status:*)",
+      "Bash(chezmoi managed:*)",
+      "Bash(chezmoi source-path:*)",
+      "Bash(chezmoi data:*)",
+      "Bash(hyprctl binds:*)",
+      "Bash(hyprctl reload:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)"
+    ],
+    "ask": [
+      "Bash(chezmoi apply:*)",
+      "Bash(chezmoi add:*)",
+      "Bash(chezmoi re-add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
+    ],
+    "deny": [
+      "Read(~/.ssh/**)",
+      "Read(~/.gnupg/**)",
+      "Read(**/.env*)",
+      "Bash(sudo:*)"
+    ]
+  }
+}
